@@ -1,0 +1,9 @@
+@include centreBlock('.header');
+.header {
+    margin-bottom: 20px;
+}
+
+@include layoutList('.nav-mainmenu', $horizontal:true);
+.nav-mainmenu {
+
+}
