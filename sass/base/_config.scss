@@ -1,0 +1,10 @@
+// place variables that are needed by both the system utils and the project here
+
+$baseFontSize: 16;
+
+// breakpoints
+$breakpoints: (
+  "phone": "screen and (max-width:700px)",
+  "tablet": "screen and (min-width:701px) and (max-width:900px)",
+  "desktop": "screen and (min-width:701px)"
+) !default;

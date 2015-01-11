@@ -1,0 +1,44 @@
+
+@include importOnce('project-helpers') {
+
+  /* _____ PROJECT HELPERS _____ */
+
+    @include _add(basicClickable) {
+        color: $color-main;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-main-light;
+          text-decoration: underline;
+        }
+    }
+
+    @include _add('projectStdBoxShadow') {
+        @include box-shadow("inset 2px 13px 37px -26px #000000");
+    }
+
+    // Placeholder for parent element of the channels
+    @include _add(channel-group) {
+        @include _use('clearfix');
+    }
+
+    // Large left, Small right
+    @include _add(channel-left_2-1) {
+        float: left;
+        width: 540px;
+    }
+    @include _add(channel-right_2-1) {
+        float: right;
+        width: 360px;
+    }
+
+    // Large right, Small left
+    @include _add(channel-left_1-2) {
+        float: left;
+        width: 360px;
+    }
+    @include _add(channel-right_1-2) {
+        float: right;
+        width: 540px;
+    }
+}

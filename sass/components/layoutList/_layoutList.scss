@@ -1,0 +1,43 @@
+
+@import 'base/utils/__utils';
+@import 'base/project/_variables';
+
+
+
+// ____ STRUCTURE ____ \\
+
+// Define component placeholders for component contents (no selector here)
+@include importOnce('layoutList') {
+    @include _add('layoutList') {
+        margin: 0;
+        padding: 0;
+
+        &,
+        li {
+            list-style: none;
+        }
+
+        li {
+            display: block;
+        }
+    }
+
+    @include _add('layoutList-horizontal') {
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+
+// Map the placeholders content to some selectirs through a mixin
+@mixin layoutList($selector, $horizontal: false) {
+    #{$selector} {
+        @include _use(layoutList);
+    }
+
+    @if $horizontal != false {
+        #{$selector} li {
+            @include _use(layoutList-horizontal);
+        }
+    }
+}
