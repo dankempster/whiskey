@@ -1,4 +1,3 @@
-@import '../../components/centreBlock/centreBlock';
 
 @include importOnce('project-globals') {
 
@@ -7,7 +6,7 @@
     *,
     *:before,
     *:after { // apply a natural box layout model to all elements
-        @include box-sizing(border-box);
+        box-sizing: border-box;
     }
 
     html {
