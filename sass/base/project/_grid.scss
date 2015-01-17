@@ -1,0 +1,18 @@
+
+#page,
+.layout {
+    @include outer-container;
+}
+
+.header {
+    @include outer-container;
+    @include pad();
+
+    h1 {
+        @include fill-parent;
+    }
+
+    .nav-mainmenu {
+        @include fill-parent;
+    }
+}

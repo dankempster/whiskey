@@ -1,9 +1,14 @@
-@include centreBlock('.header');
-.header {
-    margin-bottom: 20px;
-}
+@include importOnce('project-header') {
 
-@include layoutList('.nav-mainmenu', $horizontal:true);
-.nav-mainmenu {
+    @include layoutList('.nav-mainmenu', $horizontal: true);
 
+    .nav-mainmenu {
+        margin-top: $gutter;
+
+        li+li {
+            margin-left: $gutter / 2;
+            border-left: $base-border;
+            padding-left: $gutter / 2;
+        }
+    }
 }
