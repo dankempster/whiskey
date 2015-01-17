@@ -1,11 +1,31 @@
 
-/* ===== DEPENDENCIES ===== */
-// @import 'flexbox';
+/* ===== BOURBON SUITE ===== */
+
+@import 'sass/vendor/bourbon/bourbon';
+@import '../_grid-config';
+@import 'sass/vendor/neat/neat';
+
+
 
 /* ===== PROJECT ===== */
+
+// Config
+@import '../_docssa-config';
 @import '../_config';
-@import '_variables';
-@import '_common';
-@import '_fonts';
-@import '_globals';
-@import '_helpers';
+
+// Extends
+@import 'extends/button';
+@import 'extends/clearfix';
+@import 'extends/errors';
+@import 'extends/flashes';
+@import 'extends/hide-text';
+
+// HTML 5 Outline
+@import 'html5-outline';
+
+// Typography and Elements
+@import 'typography';
+@import 'forms';
+@import 'tables';
+@import 'lists';
+@import 'buttons';

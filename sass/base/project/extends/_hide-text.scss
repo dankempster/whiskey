@@ -1,0 +1,7 @@
+
+@include importOnce('project-extends-hidetext') {
+
+    %hide-text {
+        @include hide-text;
+    }
+}

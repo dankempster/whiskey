@@ -1,0 +1,10 @@
+
+@include importOnce('project-html5-outlint') {
+
+    header>h6:first-child,
+    footer>h6:first-child,
+    nav>h6:first-child {
+        @include _use('visuallyhidden');
+    }
+
+}
