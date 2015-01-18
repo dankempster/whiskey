@@ -1,0 +1,45 @@
+$alert-color: #fff6bf !default;
+$error-color: #fbe3e4 !default;
+$notice-color: #e5edf8 !default;
+$success-color: #e6efc2 !default;
+
+@mixin flash($color) {
+    @include fill-parent;
+    @include pad();
+
+    background-color: $color;
+    color: darken($color, 60%);
+    display: block;
+    font-weight: 600;
+    margin-bottom: $gutter / 2;
+    text-align: center;
+
+    .flash-heading {
+        @include _use(visuallyhidden);
+    }
+
+    a {
+        color: darken($color, 70%);
+
+        &:focus,
+        &:hover {
+            color: darken($color, 90%);
+        }
+    }
+}
+
+.flash-alert {
+    @include flash($alert-color);
+}
+
+.flash-error {
+    @include flash($error-color);
+}
+
+.flash-notice {
+    @include flash($notice-color);
+}
+
+.flash-success {
+    @include flash($success-color);
+}
