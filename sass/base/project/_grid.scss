@@ -1,8 +1,8 @@
 
-#page,
-.layout {
-    @include outer-container;
-}
+// #page,
+// .layout {
+//     @include outer-container;
+// }
 
 .header {
     @include outer-container;
@@ -16,3 +16,27 @@
         @include fill-parent;
     }
 }
+
+.main {
+    @include outer-container;
+
+    article {
+        @include pad;
+    }
+}
+
+div{
+    &.channel-left,
+    &.channel-right {
+        @include span-columns(8);
+    }
+}
+
+aside {
+    &.channel-left,
+    &.channel-right {
+        @include span-columns(4);
+    }
+}
+
+
