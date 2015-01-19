@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+.sass-cache
+node_modules
+libs
+dist
+temp
+build
+main.css
+*.map
+Readme.html
