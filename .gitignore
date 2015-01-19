@@ -7,5 +7,6 @@ dist
 temp
 build
 main.css
+flash.css
 *.map
 Readme.html

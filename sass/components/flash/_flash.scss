@@ -1,45 +1,80 @@
+
+@import 'sass/base/utils/__utils';
+
+
+// _____ CONFIGURATION _____ //
+
+// default skin configuration, copy to your project's config to modify (don't modify here).
 $alert-color: #fff6bf !default;
 $error-color: #fbe3e4 !default;
 $notice-color: #e5edf8 !default;
 $success-color: #e6efc2 !default;
 
-@mixin flash($color) {
-    @include fill-parent;
-    @include pad();
 
-    background-color: $color;
-    color: darken($color, 60%);
-    display: block;
-    font-weight: 600;
-    margin-bottom: $gutter / 2;
-    text-align: center;
 
-    .flash-heading {
+// _____ STRUCTURE _____ //
+
+// define component placeholders for component contents (no selector here)
+
+@include importOnce('flash') {
+    @include _add(flash) {
+        @include fill-parent;
+        @include pad;
+    }
+
+    @include _add(flash-heading) {
         @include _use(visuallyhidden);
     }
+}
 
-    a {
-        color: darken($color, 70%);
+// map the placeholders content to some selectors through a mixin
+@mixin flash($selector, $skin: 'alert') {
+    #{$selector} {
+        @include _use(flash);
+    }
 
-        &:focus,
-        &:hover {
-            color: darken($color, 90%);
-        }
+    #{$selector}-heading {
+        @include _use(flash-message);
+    }
+
+    @if $skin == 'alert' {
+        @include flash-skin-default($selector, $alert-color);
+    }
+    @elseif $skin == 'error' {
+        @include flash-skin-default($selector, $error-color);
+    }
+    @elseif $skin == 'notice' {
+        @include flash-skin-default($selector, $notice-color);
+    }
+    @elseif $skin == 'success' {
+        @include flash-skin-default($selector, $success-color);
     }
 }
 
-.flash-alert {
-    @include flash($alert-color);
-}
 
-.flash-error {
-    @include flash($error-color);
-}
 
-.flash-notice {
-    @include flash($notice-color);
-}
+// _____ SKIN _____ //
+@import 'sass/base/_config';
 
-.flash-success {
-    @include flash($success-color);
+// provide a default skin for the component
+// only visual changes that don't affect the component layout should be in here
+@mixin flash-skin-default($selector, $color) {
+
+    #{$selector} {
+        background-color: $color;
+        color: darken($color, 60%);
+        display: block;
+        font-weight: 600;
+        margin-bottom: $gutter / 2;
+        text-align: center;
+
+        a {
+            color: darken($color, 70%);
+
+            &:focus,
+            &:hover {
+                color: darken($color, 90%);
+            }
+        }
+    }
 }
