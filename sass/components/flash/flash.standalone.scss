@@ -1,0 +1,7 @@
+@import '_flash';
+
+
+@include flash('.flash-alert', 'alert');
+@include flash('.flash-error', 'error');
+@include flash('.flash-notice', 'notice');
+@include flash('.flash-success', 'success');
